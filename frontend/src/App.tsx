@@ -1,5 +1,5 @@
 import './App.css'
-import AdminLayout from './pages/admin/adminLayout'
+import AdminLayout from './pages/admin/AdminLayout'
 function App() {
 
   return (

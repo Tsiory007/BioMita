@@ -1,8 +1,10 @@
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "@/components/ui/button";
-import { AREAS, money } from "../../data/MockData";
+import { AREAS } from "../../data/MockData";
 
-
+  function money(nombre_visiteurs: number): string {
+    return nombre_visiteurs.toLocaleString("fr-FR") + " Ar";
+  }
 
 //gestion des aires protégées
 export default function Areas() {
@@ -17,11 +19,11 @@ export default function Areas() {
         {AREAS.map((a) => (
           <Card key={a.id}>
             <CardContent>
-              <p className="font-medium text-stone-900">{a.name}</p>
-              <p className="text-xs text-stone-500">{a.region} · {a.superficie}</p>
+              <p className="font-medium text-stone-900">{a.nom}</p>
+              <p className="text-xs text-stone-500">{a.localisation}</p>
               <div className="flex items-center justify-between mt-3 text-sm">
                 <span className="text-stone-500">Ticket + guide</span>
-                <span className="font-medium text-stone-900">{money(a.ticket)} + {money(a.guide)}</span>
+                <span className="font-medium text-stone-900">{money(Number(a.tarif_ticket))} + {money(Number(a.tarif_guide))}</span>
               </div>
               <Button variant="outline" size="sm" className="w-full mt-3">
                 Modifier les tarifs
